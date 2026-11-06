@@ -24,7 +24,8 @@ Rules:
 
 MAX_STEPS = 5
 
-client = genai.Client(api_key=os.environ["GEMINI_API_KEY"])
+client = genai.Client(api_key=os.environ.get("GEMINI_API_KEY", "MOCK_KEY_FOR_TESTS"))
+
 
 
 def run_agent(user_message, previous_interaction_id=None, verbose=False):

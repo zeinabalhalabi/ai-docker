@@ -23,8 +23,11 @@ jobs:
       - name: Install dependencies
         run: pip install -r requirements.txt
 
-      - name: Django system check
-        run: python manage.py check
+      - name: Run Django System Checks
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          python manage.py check
 
       - name: Log in to GitHub Container Registry
         uses: docker/login-action@v4
